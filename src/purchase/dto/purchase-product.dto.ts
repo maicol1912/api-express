@@ -7,8 +7,8 @@ export class PurchaseProductDTO extends BaseDTO {
   @IsNotEmpty()
   quantityProduct!: number;
 
-  @IsNotEmpty()
-  totalPrice!: number;
+  @IsOptional()
+  totalPrice?: number;
 
   @IsOptional()
   purchase?: PurchaseEntity;

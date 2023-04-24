@@ -8,11 +8,11 @@ export class CategoryService extends BaseService<CategoryEntity> {
     super(CategoryEntity);
   }
 
-  async findAllCategoties(): Promise<CategoryEntity[]> {
+  async findAllCategories(): Promise<CategoryEntity[]> {
     return (await this.execRepository).find();
   }
-  async findCategoryById(id: string): Promise<CategoryEntity | undefined> {
-    return (await this.execRepository).findOne({ id });
+  async findCategoryById(id: string): Promise<CategoryEntity | null> {
+    return (await this.execRepository).findOne({ where:{id} });
   }
   async createCategory(body: CategoryDTO): Promise<CategoryEntity> {
     return (await this.execRepository).save(body);

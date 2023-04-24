@@ -3,6 +3,7 @@ import { ProductController } from "./controllers/product.controller";
 export class ProductRouter extends BaseRouter<ProductController> {
   constructor() {
     super(ProductController);
+    this.routes()
   }
 
   routes(): void {
@@ -12,13 +13,13 @@ export class ProductRouter extends BaseRouter<ProductController> {
     this.router.get("/product/:id", (req, res) =>
       this.controller.getProductById(req, res)
     );
-    this.router.post("/createProduct", (req, res) =>
+    this.router.post("/create-product", (req, res) =>
       this.controller.createProduct(req, res)
     );
-    this.router.put("/updateProduct/:id", (req, res) =>
+    this.router.put("/update-product/:id", (req, res) =>
       this.controller.updateProduct(req, res)
     );
-    this.router.delete("/deleteProduct/:id", (req, res) =>
+    this.router.delete("/delete-product/:id", (req, res) =>
       this.controller.deleteProduct(req, res)
     );
   }

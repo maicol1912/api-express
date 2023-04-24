@@ -30,4 +30,12 @@ export class UserDTO extends BaseDTO {
     @IsNumber()
     province!: number;
 
+    @IsNotEmpty({message:"the role is necessary"})
+    role!:RolType;
+}
+
+export enum RolType{
+    USER = "USER",
+    CUSTOMER= "CUSTOMER",
+    ADMIN = "ADMIN"
 }

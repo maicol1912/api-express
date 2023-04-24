@@ -1,8 +1,15 @@
+import "reflect-metadata"
 import express from "express";
 import morgan from "morgan"
 import cors from "cors"
 import { UserRouter } from "./user/user.router";
 import { ConfigServer } from "./config/config";
+import { CategoryRouter } from "./category/category.router";
+import { CustomerRouter } from "./customer/customer.router";
+import { ProductRouter } from "./product/product.router";
+import { PurchaseRouter } from "./purchase/purchase.router";
+import { DataSource } from "typeorm";
+import { PurchaseProductRouter } from "./purchase/purchase-products.router";
 //* extendemos de config server para poder acceder a las variables de entorno   
 class ServerBootstrap extends ConfigServer {
     public app: express.Application = express();
@@ -34,15 +41,22 @@ class ServerBootstrap extends ConfigServer {
     }
     //* el metodo routers devuelve una lista de routers, aca se listan todas las rutas de la aplicacion
     routers(): Array<express.Router> {
-        return [new UserRouter().router]
+        return [
+            new UserRouter().router,
+            new CategoryRouter().router,
+            new CustomerRouter().router,
+            new ProductRouter().router,
+            new PurchaseRouter().router,
+            new PurchaseProductRouter().router
+        ]
     }
 
-    async connectDB(){
+    async connectDB():Promise<DataSource | void>{
         await this.dbConnect().then(()=>{
             console.log("connection database ready")
         })
-        .catch(()=>{
-            console.log("connection database falied")
+        .catch((e)=>{
+            console.log("connection database falied"+e)
         })
     }
 }

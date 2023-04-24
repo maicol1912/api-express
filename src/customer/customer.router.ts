@@ -3,6 +3,7 @@ import { CustomerController } from "./controllers/customer.controller";
 export class CustomerRouter extends BaseRouter<CustomerController> {
   constructor() {
     super(CustomerController);
+    this.routes()
   }
 
   routes(): void {

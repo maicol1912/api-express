@@ -1,6 +1,7 @@
 import * as dotenv from "dotenv"
 import { DataSource } from "typeorm"
 import { SnakeNamingStrategy } from "typeorm-naming-strategies"
+import { AppDataSource } from "./data.source"
 //* abstracta es una clase que no se puede instanciar // se puede usar como una herencia
 export abstract class ConfigServer {
     //* definimos el path con el nombre de la variable
@@ -32,28 +33,8 @@ export abstract class ConfigServer {
         return `.env`
     }
 
-    public AppDataSource() {
-        return new DataSource({
-            type: "postgres",
-            host: this.getEnviroment('DB_HOST'),
-            port: this.getNumberEnv('DB_PORT'),
-            username: this.getEnviroment('DB_USER'),
-            password: this.getEnviroment('DB_PASSWORD'),
-            database: this.getEnviroment('DB_DATABASE'),
-            entities: [__dirname + "/../**/*.entity{.ts,.js}"],
-            migrations: [__dirname + "/../../migrations/*{.ts,.js}"],
-            //* synchronize en true es para que no necesitemos hacer migraciones sino que se haga al correr el programa
-            synchronize: true,
-            //*esto seria para que tengamos que correr lsa migraciones para poder ver los cambios
-            /*migrationsRun:true,*/
-            logging: false,
-            namingStrategy: new SnakeNamingStrategy(),
-            
-        })
-    }
-
     async dbConnect(): Promise<any> {
-        return await this.AppDataSource().initialize()
+        return AppDataSource.initialize()
         
     }
 }

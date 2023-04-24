@@ -21,6 +21,6 @@ export class CustomerEntity extends BaseEntity {
     //* aca hay una relacion one a muchos en la tabla de purchases, ya que un customer puede hacer varias compras
     @OneToMany(() => PurchaseEntity, (purchase) => purchase.customer)
     //* join column para crear una columna con la realcion
-    @JoinColumn({ name: "user_id" })
+    @JoinColumn({ name: "purchase_id" })
     purchases!: PurchaseEntity[]
 }
