@@ -3,6 +3,7 @@ import { PurchaseDTO } from "../dto/purchase.dto";
 import { validate } from "class-validator";
 import { HttpResponse } from "../../shared/response/http.response";
 import { PurchaseProductDTO } from "../dto/purchase-product.dto";
+import { HttpException } from "../../shared/filters/exceptions/http-exception";
 
 export class PurchaseProductMiddlware{
     constructor(private readonly httpResponse:HttpResponse = new HttpResponse()){
@@ -17,7 +18,7 @@ export class PurchaseProductMiddlware{
         validate(valid).then((err)=>{
             //* hay un error con la integridad de los datos
             if(err.length > 0){
-                return this.httpResponse.Forbiden(res,err)
+                return next(new HttpException(401, "Not valid data"))
             }else{
                 next()
             }

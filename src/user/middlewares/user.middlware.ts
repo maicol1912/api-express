@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { UserDTO } from "../dto/user.dto";
 import { validate } from "class-validator";
 import { HttpResponse } from "../../shared/response/http.response";
+import { HttpException } from "../../shared/filters/exceptions/http-exception";
 
 //* Este middleware sirve para validar los datos de entrada de una peticion, se usa en los routers
 export class UserMiddlware{
@@ -18,7 +19,7 @@ export class UserMiddlware{
         validate(valid).then((err)=>{
             //* hay un error con la integridad de los datos
             if(err.length > 0){
-                return this.httpResponse.Forbiden(res,err)
+                return next(new HttpException(401, "Not valid data"))
             }else{
                 //* sigue la ejecucion normal por eso es middleware
                 next()
