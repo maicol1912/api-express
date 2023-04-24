@@ -1,8 +1,9 @@
 import { BaseRouter } from "../shared/router/router";
 import { ProductController } from "./controllers/product.controller";
-export class ProductRouter extends BaseRouter<ProductController> {
+import { ProductMiddlware } from "./middlewares/product.middlware";
+export class ProductRouter extends BaseRouter<ProductController,ProductMiddlware> {
   constructor() {
-    super(ProductController);
+    super(ProductController, ProductMiddlware);
     this.routes()
   }
 

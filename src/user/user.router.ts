@@ -1,10 +1,11 @@
 import { UserController } from "./controllers/user.controller";
 import { BaseRouter } from "../shared/router/router";
+import { UserMiddlware } from "./middlewares/user.middlware";
 //* se debe heredar con el tipo de controllador que enviamos
-export class UserRouter extends BaseRouter<UserController>{
+export class UserRouter extends BaseRouter<UserController,UserMiddlware>{
     constructor(){
         //* se envia un super con el controller que se quiere enviar 
-        super(UserController)
+        super(UserController,UserMiddlware)
         //* ejecutamos las rutas que estan en el metodo routes
         this.routes()
     }
@@ -12,10 +13,16 @@ export class UserRouter extends BaseRouter<UserController>{
     routes():void{
         //* ejecutamos todos las rutas
         this.router.get('/users',(req,res)=>this.controller.getUsers(req,res))
+
         this.router.get('/user/:id',(req,res)=>this.controller.getUserById(req,res))
+
         this.router.get('/userRel/:id', (req, res) => this.controller.getUserWithRelation(req, res))
-        this.router.post('/create-user',(req,res)=>this.controller.createUser(req,res))
+        //* Aca ejecutamos el middleware de validacion de integracion de datos 
+        this.router.post('/create-user', (req, res, next) => [this.middleware.userValidator(req, res, next)],
+        (req,res)=> this.controller.createUser(req,res))
+
         this.router.put('/update-user/:id',(req,res)=>this.controller.updateUser(req,res))
+
         this.router.delete('/delete-user/:id',(req,res)=>this.controller.deleteUser(req,res))
     }
 }
