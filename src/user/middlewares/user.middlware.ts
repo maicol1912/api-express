@@ -20,6 +20,7 @@ export class UserMiddlware extends SharedMiddleware{
         validate(valid).then((err)=>{
             //* hay un error con la integridad de los datos
             if(err.length > 0){
+                //* hacemos un next de la nueva exception para que pueda entrar en el otro middleware de error
                 return next(new HttpException(401, "Not valid data"))
             }else{
                 //* sigue la ejecucion normal por eso es middleware

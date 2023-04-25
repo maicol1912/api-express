@@ -62,7 +62,7 @@ class ServerBootstrap extends ConfigServer {
             new AuthRouter().router
         ]
     }
-
+    //*nos conectamos a la base de datos si esta todo bien nos conectamos, sino no
     async connectDB():Promise<DataSource | void>{
         await this.dbConnect().then(()=>{
             console.log("connection database ready")
@@ -73,6 +73,7 @@ class ServerBootstrap extends ConfigServer {
     }
 
     passportUse() {
+        //* debemos usar la strategy de Login para usarlo, y el JWT para poder decodear el token
         return [new LoginStrategy().use, new JwtStrategy().use];
     }
 }
