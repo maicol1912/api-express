@@ -1,0 +1,723 @@
+{
+	"info": {
+		"_postman_id": "fd96bfa0-cc45-4a1b-a695-63e59466d781",
+		"name": "APP-EXPRESS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24860457"
+	},
+	"item": [
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "LIST USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/users",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"maiquitolarcila33333\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/update-user/6b5085c3-fe29-4ac8-9aec-79f4db0d92eb",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"update-user",
+								"6b5085c3-fe29-4ac8-9aec-79f4db0d92eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/user/31ff6c3e-e530-4ce2-b705-1356c51d9a88",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user",
+								"31ff6c3e-e530-4ce2-b705-1356c51d9a88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiI1MzY0YzQxOS0yNDliLTRlYjQtYTBmNC1hYzZkYmMzZjgzZTEiLCJpYXQiOjE2ODIzOTUzMDcsImV4cCI6MTY4MjM5ODkwN30.n17LBcNwdUYLYzONfSr4NyEwagu5PMJ1KtGrNuQoE6g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/delete-user/40722301-4b03-418d-abe6-fcef69ceaf14",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"delete-user",
+								"40722301-4b03-418d-abe6-fcef69ceaf14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"maicol arcila\",\r\n    \"lastname\":\"arcila\",\r\n    \"username\":\"maicol111\",\r\n    \"email\":\"maicolarcia34@gmail.com\",\r\n    \"password\":\"maicol111\",\r\n    \"city\":\"medellin\",\r\n    \"province\":1,\r\n    \"role\":\"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/create-user",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE RELATION",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/userRel/151bb07a-b713-4a38-9761-e3c86b70ea0c",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"userRel",
+								"151bb07a-b713-4a38-9761-e3c86b70ea0c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORY",
+			"item": [
+				{
+					"name": "LIST CATEGORIES",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/categories",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CATEGORIES",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryName\":\"ropa1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/update-category/b19eba7b-746b-42bb-98f5-629fa1bc4ad6",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"update-category",
+								"b19eba7b-746b-42bb-98f5-629fa1bc4ad6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/category/b19eba7b-746b-42bb-98f5-629fa1bc4ad6",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"category",
+								"b19eba7b-746b-42bb-98f5-629fa1bc4ad6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE CATEGORIES",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/delete-category/b19eba7b-746b-42bb-98f5-629fa1bc4ad6",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"delete-category",
+								"b19eba7b-746b-42bb-98f5-629fa1bc4ad6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE CATEGORIES",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryName\":\"food\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/create-category",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"create-category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CUSTOMER",
+			"item": [
+				{
+					"name": "LIST CUSTOMER",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/customers",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CUSTOMER",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryName\":\"ropa1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/update-customer/b19eba7b-746b-42bb-98f5-629fa1bc4ad6",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"update-customer",
+								"b19eba7b-746b-42bb-98f5-629fa1bc4ad6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/customer/b19eba7b-746b-42bb-98f5-629fa1bc4ad6",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"customer",
+								"b19eba7b-746b-42bb-98f5-629fa1bc4ad6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE CUSTOMER",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/delete-customer/b19eba7b-746b-42bb-98f5-629fa1bc4ad6",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"delete-customer",
+								"b19eba7b-746b-42bb-98f5-629fa1bc4ad6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE CUSTOMER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\":\"cl 64\",\r\n    \"dni\":33,\r\n    \"user\":\"151bb07a-b713-4a38-9761-e3c86b70ea0c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/create-customer",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"create-customer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "LIST PRODUCT",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/products",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PRODUCT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\":\"clothes1\",\r\n    \"description\":\"good product\",\r\n    \"price\":2000,\r\n    \"category\":\"60678d4d-3fbb-41c8-a8cc-59739c15ca24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/update-product/ffb2f5e9-e51b-43e0-8e81-a6662701857d",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"update-product",
+								"ffb2f5e9-e51b-43e0-8e81-a6662701857d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/product/ffb2f5e9-e51b-43e0-8e81-a6662701857d",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"product",
+								"ffb2f5e9-e51b-43e0-8e81-a6662701857d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE PRODUCT",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/delete-customer/b19eba7b-746b-42bb-98f5-629fa1bc4ad6",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"delete-customer",
+								"b19eba7b-746b-42bb-98f5-629fa1bc4ad6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE PRODUCT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\":\"clothes\",\r\n    \"description\":\"good product\",\r\n    \"price\":2000,\r\n    \"category\":\"1c1bb1a5-81e9-4eaf-9e84-935cc49f81c7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/create-product",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"create-product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PURCHASE",
+			"item": [
+				{
+					"name": "LIST PURCHASES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/users",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PURCHASE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"maiquitolarcila33333\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/update-user/31ff6c3e-e530-4ce2-b705-1356c51d9a88",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"update-user",
+								"31ff6c3e-e530-4ce2-b705-1356c51d9a88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/user/875b2057-1767-420f-ae69-c9e2337c065e",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user",
+								"875b2057-1767-420f-ae69-c9e2337c065e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE PURCHASE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/delete-user/c30a1550-c23f-45d2-87c3-1de96344b878",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"delete-user",
+								"c30a1550-c23f-45d2-87c3-1de96344b878"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE PURCHASE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"ACTIVE\",\r\n    \"paymentMethod\":\"pse\",\r\n    \"customer\":\"06993bdc-fd48-4a45-991a-2467cbf5f6cb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/create-purchase",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"create-purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PURCHASE-PRODUCT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantityProduct\":30,\r\n    \"purchase\":\"97f2d524-e198-41fc-a965-b9f3f7051d09\",\r\n    \"product\":\"32e5aaff-2dc3-42b2-a38e-739d2bbc75bd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/createPurchaseProduct",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"createPurchaseProduct"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LOGIN",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"maicol111\",\r\n    \"password\":\"maicol111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/login",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

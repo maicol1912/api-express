@@ -22,8 +22,10 @@ export class UserRouter extends BaseRouter<UserController,UserMiddlware>{
         (req,res)=> this.controller.createUser(req,res))
 
         this.router.put('/update-user/:id',(req,res)=>this.controller.updateUser(req,res))
-
+                                              //*debemos primero llamar al middleware de auth
+                                              //* este passsport devuelve un user en el .req que se usa para autenticar
         this.router.delete('/delete-user/:id',this.middleware.passAuth("jwt"),
+        //* despues ahi si checar el admin
         (req,res,next)=> [this.middleware.checkAdminRole(req,res,next)],
         (req,res)=>this.controller.deleteUser(req,res))
     }
