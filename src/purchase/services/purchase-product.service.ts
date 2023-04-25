@@ -21,7 +21,6 @@ export class PurchaseProductService extends BaseService<PurchaseProductEntity> {
   async createPurchaseProduct(
     body: PurchaseProductDTO
   ): Promise<PurchaseProductEntity> {
-    //* create guarda en memoria 
     const newPP = (await this.execRepository).create(body);
     const prod = await this.productService.findProductById(newPP.product.id)
     newPP.totalPrice = prod!.price * newPP.quantityProduct

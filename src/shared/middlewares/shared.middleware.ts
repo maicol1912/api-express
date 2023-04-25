@@ -6,7 +6,6 @@ import { HttpResponse } from "../response/http.response";
 
 export class SharedMiddleware{
 
-  //* este es el middleware donde entra la uatenticacion, estamos usando el login de passport
   constructor(public httpResponse: HttpResponse = new HttpResponse()) {}
   passAuth(type: string) {
     return passport.authenticate(type, { session: false });

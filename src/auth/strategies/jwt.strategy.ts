@@ -3,7 +3,6 @@ import { Strategy as JwtStr, StrategyOptions, ExtractJwt } from "passport-jwt";
 import { PayloadToken } from "../interfaces/auth.interface";
 import { PassportUse } from "../utils/passport.use";
 
-//*la estrategia de jwt strategy es usada para decodear el token
 export class JwtStrategy extends AuthService {
   constructor() {
     super();

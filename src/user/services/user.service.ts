@@ -32,11 +32,9 @@ export class UserService extends BaseService<UserEntity>{
         return (await this.execRepository).update(id,infoUpdate)
     }
 
-    //* con el query builder traeremos la informacion del customer en la consulta
     async findUserWithRelation(id:string):Promise<UserEntity | null>{
         return (await this.execRepository).
         createQueryBuilder('user')
-        //* usamos la relacion de user.customer y despues traemos el customer completo
         .leftJoinAndSelect('user.customer','customer')
         .where({id}).getOne()
     }

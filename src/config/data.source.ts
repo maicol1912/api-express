@@ -15,9 +15,7 @@ const Config:DataSourceOptions =  {
         database: process.env.DB_DATABASE,
         entities: [__dirname + "/../**/*.entity{.ts,.js}"],
         migrations: [__dirname + "/../migrations/*{.ts,.js}"],
-        //* synchronize en true es para que no necesitemos hacer migraciones sino que se haga al correr el programa
         synchronize: false,
-        //*esto seria para que tengamos que correr lsa migraciones para poder ver los cambios
         migrationsRun:true,
         logging: false,
         namingStrategy: new SnakeNamingStrategy(),
