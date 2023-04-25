@@ -3,11 +3,12 @@ import { UserDTO } from "../dto/user.dto";
 import { validate } from "class-validator";
 import { HttpResponse } from "../../shared/response/http.response";
 import { HttpException } from "../../shared/filters/exceptions/http-exception";
+import { SharedMiddleware } from "../../shared/middlewares/shared.middleware";
 
 //* Este middleware sirve para validar los datos de entrada de una peticion, se usa en los routers
-export class UserMiddlware{
-    constructor(private readonly httpResponse:HttpResponse = new HttpResponse()){
-
+export class UserMiddlware extends SharedMiddleware{
+    constructor(){
+        super()
     }
     userValidator(req:Request,res:Response,next:NextFunction){
         //* estamos asignando una instancia de dto

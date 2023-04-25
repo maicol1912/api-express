@@ -17,6 +17,8 @@ export class BaseRouter<T,U>{
         this.controller = new TController()
         //* es el middlware que se usa para validar esas rutas
         this.middleware = new UMiddleware()
+        this.routes()
     }
 
+    routes() { }
 }

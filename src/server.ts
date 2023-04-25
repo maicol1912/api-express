@@ -13,6 +13,9 @@ import { PurchaseRouter } from "./purchase/purchase.router";
 import { DataSource } from "typeorm";
 import { PurchaseProductRouter } from "./purchase/purchase-products.router";
 import errorHandlingMiddleware from "./shared/filters/exception.filter";
+import { LoginStrategy } from "./auth/strategies/login.strategy"; 
+import { JwtStrategy } from "./auth/strategies/jwt.strategy"; 
+import { AuthRouter } from "./auth/auth.router";
 
 //* extendemos de config server para poder acceder a las variables de entorno   
 class ServerBootstrap extends ConfigServer {
@@ -25,6 +28,7 @@ class ServerBootstrap extends ConfigServer {
         this.middlewares()
         this.listen()
         this.connectDB()
+        this.passportUse()
     }
 
     //*configuracion del server 
@@ -55,6 +59,7 @@ class ServerBootstrap extends ConfigServer {
             new ProductRouter().router,
             new PurchaseRouter().router,
             new PurchaseProductRouter().router,
+            new AuthRouter().router
         ]
     }
 
@@ -65,6 +70,10 @@ class ServerBootstrap extends ConfigServer {
         .catch((e)=>{
             console.log("connection database falied"+e)
         })
+    }
+
+    passportUse() {
+        return [new LoginStrategy().use, new JwtStrategy().use];
     }
 }
 

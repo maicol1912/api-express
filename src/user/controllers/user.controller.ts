@@ -26,9 +26,6 @@ export class UserController {
 
     async createUser(req: Request, res: Response) {
         const {body} = req
-        if (body.lastname === 'arcila'){
-            throw new HttpException(404,"Not found user")
-        }
         const data = await this.userService.createUser(body)
         return this.httpResponse.Ok(res, data)
     }
